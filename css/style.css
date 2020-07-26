@@ -1,0 +1,275 @@
+* {
+  box-sizing: border-box;
+}
+  
+html {
+  background-color: #4b8093;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: #f9f7f3;
+  font-family: 'Righteous', sans-serif;
+  height:100%;
+  line-height: 1.5;
+  min-height:100%;
+  scroll-behavior: smooth;
+}
+
+.background {
+  background-image: url("../img/bb1.jpg");
+  height: 100vh;
+  width: 100vw;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+  left: 0;
+  position: fixed;
+  right: 0;
+  transition: background-image 1s;
+  z-index: 1;
+}
+
+.content {
+  margin-left: 20px;
+  margin-right: 20px;
+  left: 0;
+  position: absolute;
+  right: 0;
+  z-index: 9999;
+}
+
+.player{ 
+  background-color: #2b4b58d1;
+  box-shadow: 0.5rem -0.5rem 2rem #000000c2;
+  display: flex;
+  padding: 3rem;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.6);
+  width: 100%;
+}
+
+
+h1 {
+  font-family: 'Chicle', cursive;
+  font-size: 5rem;
+  margin: 3rem 0 2rem;
+  text-align: center;
+  /*color: #f9f7f3;*/
+  text-shadow: 2px 2px 22px black;
+}
+
+main {
+  align-content: space-around;
+  display: flex;
+  margin: auto;
+  width: 70%;
+}
+
+section {
+  text-align: center;
+  width: 50%;
+}
+
+img {
+  border: 4px solid #2b4d554f;
+  width: 100%;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+}
+li {
+	background-image: url("../img/music2.png");
+	background-repeat: no-repeat;
+	background-position: left center;
+  background-size: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  list-style: none;
+  margin: 0;
+  padding: 1rem 0 1rem 2.5rem;
+  transition:background-size .2s ease;
+}
+
+li:hover {
+  background-size: 30px;
+}
+
+.cursorPointer {
+  cursor: pointer;
+}
+
+button { 
+  outline: none;
+}
+
+button {
+  background: #b3d9e4;
+  border: none;
+  border-radius: 5px;
+  height: 1.5rem;
+  margin: .5rem;
+  width: 5rem;
+}
+
+.fas {
+  color: #478191;
+}
+
+button:hover {
+  box-shadow:  inset 1px -1px 5px rgba(0,0,0,0.75);
+}
+
+button:focus {
+  box-shadow:  inset 1px -1px 5px rgba(0,0,0,0.75);
+}
+
+#trackSection {
+  margin: 1rem;
+  padding-left: 1rem;
+}
+
+#track {
+  background: black;
+}
+
+#trackTitle {
+  font-size: 1.5rem;
+}
+  
+
+/* SLIDER---------------------- */
+range-slider {
+  --element-height:40px;
+  --track-height:5px;
+  --thumb-size:20px;
+  align-items:center;
+  cursor:pointer;
+  display:flex;
+  height:var(--element-height);
+  margin:2px;
+  min-width:130px;
+  overflow:visible;
+  position:relative;
+  touch-action:none;
+  width:100%;
+}
+  
+range-slider:focus {
+  outline:0;
+}
+  
+range-slider[disabled] {
+  filter:grayscale(1);
+  opacity:.8;
+}
+
+range-slider:before {
+  background:linear-gradient(#b3d9e4,#b3d9e4) 0/var(--value-percent,0) 100% no-repeat rgb(75, 119, 134);
+  border-radius:calc(var(--track-height)/2);
+  content:"";
+  display:block;
+  height:var(--track-height);
+  width:100%;
+}
+
+range-slider:focus .thumb {
+  box-shadow:0 0 0 .3em rgba(137, 215, 241, 0.2);
+}
+
+range-slider.touch-active .thumb-wrapper .thumb {
+  box-shadow:none;
+  transform:scale(1.5);
+}
+
+.durationSlider .thumb {
+  background:url(../img/duration2.png);
+  background-size: cover;
+}
+
+.thumb {
+  background:url(../img/volume2.png);
+  background-size: cover;
+  border-radius:50%;
+  bottom:calc(var(--element-height)/2 - var(--thumb-size)/2);
+  height:var(--thumb-size);
+  left:var(--value-percent,0);
+  margin-left:calc(var(--thumb-size)/2*-1);
+  pointer-events:none;
+  position:absolute;
+  transition:transform .2s ease;
+  width:var(--thumb-size);
+  will-change:transform;
+}
+
+.thumb-wrapper {
+  bottom:0;
+  height:0;
+  left:calc(var(--thumb-size)/2);
+  overflow:visible;
+  position:absolute;
+  right:calc(var(--thumb-size)/2);
+}
+  /* SLIDER END---------------------- */
+@media only screen and (max-width: 1075px) {
+ main {
+   width:80%;
+ }
+}
+
+@media only screen and (max-width: 950px) {
+.player {
+  flex-direction: column;
+  padding: 1rem;
+}
+
+main {
+  width: 90%;
+}
+
+section {
+  width: 100%;
+}
+
+img {
+  max-width: 75%;
+}
+
+#trackSection {
+  margin: 0rem;
+  padding-left: 0rem;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+range-slider {
+  max-width: 400px;
+  margin: auto;
+}
+}
+
+@media only screen and (max-width: 450px) {
+  h1 {
+    font-size: 3rem;
+  }
+}
+
+@media only screen and (max-width: 395px) {
+#back {
+  order: 1;
+}
+
+#forward {
+  order: 2;
+}
+
+#play {
+  order: 3;
+}
+} 
